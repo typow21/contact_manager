@@ -1,0 +1,29 @@
+h1{
+    display: inline-block;
+}
+
+body{
+    background-color: rgb(251, 122, 122);
+}
+
+div.card{
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+    height: 90%;
+    box-shadow: 4px 8px 12px #888888;
+    background-color: white;
+    margin: 0 auto;
+}
+
+.phone{
+    text-align: left;
+}
+.relations{
+    text-align: left;
+}
+
+hr{
+    background-color: grey;
+    height: 1px;
+}

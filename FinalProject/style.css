@@ -1,0 +1,56 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #2196F3;
+    padding: 10px;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+button.new_contact{
+    float: right;
+    font-size: large;
+    width: 12%;
+    height: 30px;
+    transition: width .5s;
+}
+button.new_contact:hover{
+    box-shadow: 1px 2px 3px;
+}
+
+body {
+    padding: 10px;
+    background-color: rgb(44, 161, 116);
+    text-align: center;
+}
+
+p {
+    border: 2px;
+    border-color: black;
+    border-radius: 2px;
+}
+
+div.card {
+    font-size: larger;
+    border: 0px solid;
+    border-radius: 4;
+    width: 10%;
+    height: 20%;
+    box-shadow: 1px 2px 3px #888888;
+    background-color: white;
+}
+
+div.card:hover{
+    box-shadow: 2px 4px 6px #888888;
+}
+
+img {
+    border: 1px solid #ddd;
+    width: 45%;
+}
