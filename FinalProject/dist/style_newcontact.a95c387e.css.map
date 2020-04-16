@@ -1,0 +1,1 @@
+{"version":3,"sources":["style_newcontact.css"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA","file":"style_newcontact.a95c387e.css","sourceRoot":"..","sourcesContent":["div{\n    text-align: center;\n}\n\nh1{\n    text-align: center;\n}\n\ninput{\n    text-align: right;\n}"]}
