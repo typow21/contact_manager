@@ -1,0 +1,59 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 400px 400px 400px 400px;
+    grid-gap: 5%;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    width: 20%;
+}
+.grid-column1{
+    width:100%;
+}
+
+button.new_contact{
+    float: right;
+    font-size: large;
+    width: 12%;
+    height: 30px;
+    transition: width .5s;
+}
+
+button.new_contact:hover{
+    box-shadow: 1px 2px 3px;
+}
+
+body {
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+p {
+    border: 2px;
+    border-color: black;
+    border-radius: 2px;
+}
+
+div.card {
+    display: grid;
+    grid-column: auto;
+    font-size: larger;
+    border: 1px solid black;
+    border-radius: 4;
+    width: 100%;
+    box-shadow: 1px 2px 3px #888888;
+    background-color: rgb(241, 240, 240);
+}
+
+div.card:hover{
+    box-shadow: 2px 4px 6px #888888;
+    width: 102%;
+    height: 102%;
+}
+
+img {
+    border: 1px solid #ddd;
+    width: 45%;
+}
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */
