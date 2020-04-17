@@ -4,6 +4,7 @@ import java.util.*;
 
 public class Contact {
 	
+	public int id;
 	public String firstName;
 	public String lastName;
 	public String phoneNumber;
@@ -14,6 +15,7 @@ public class Contact {
 	//Constructor 
 	public Contact () {
 			
+		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.phoneNumber = phoneNumber;
