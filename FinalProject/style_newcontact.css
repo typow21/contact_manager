@@ -1,11 +1,22 @@
-div{
-    text-align: center;
-}
-
 h1{
-    text-align: center;
+    display: inline-block;
 }
 
-input{
-    text-align: right;
+body{
+    background-color: rgb(214, 214, 214);
+}
+
+div.form{
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+    height: 90%;
+    box-shadow: 4px 8px 12px #888888;
+    background-color: white;
+    margin: 0 auto;
+}
+
+hr{
+    background-color: grey;
+    height: 1px;
 }

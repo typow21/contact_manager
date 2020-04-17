@@ -1,6 +1,6 @@
 .grid-container {
     display: grid;
-    grid-template-columns: 400px 400px 400px 400px;
+    grid-template-columns: 350px 350px 350px 350px;
     grid-gap: 5%;
     background-color: rgb(255, 255, 255);
     padding: 10px;
@@ -39,7 +39,8 @@ div.card {
     grid-column: auto;
     font-size: larger;
     border: 1px solid black;
-    border-radius: 4;
+    border-radius: 2%;
+    padding-bottom: 20px;
     width: 100%;
     box-shadow: 1px 2px 3px #888888;
     background-color: rgb(241, 240, 240);
@@ -51,7 +52,7 @@ div.card:hover{
     height: 102%;
 }
 
-img {
-    border: 1px solid #ddd;
-    width: 45%;
+img{
+    border: 1px solid black;
+    width: 25%;
 }

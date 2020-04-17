@@ -3,7 +3,7 @@ h1{
 }
 
 body{
-    background-color: rgb(251, 122, 122);
+    background-color: rgb(202, 202, 202);
 }
 
 div.card{
@@ -22,7 +22,9 @@ div.card{
 .relations{
     text-align: left;
 }
-
+.address{
+    text-align: left;
+}
 hr{
     background-color: grey;
     height: 1px;
