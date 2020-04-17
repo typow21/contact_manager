@@ -1,8 +1,7 @@
 .grid-container {
     display: grid;
-    grid-template-columns: 400px 400px 400px 400px;
+    grid-template-columns: 350px 350px  350px  350px;
     grid-gap: 5%;
-    background-color: rgb(255, 255, 255);
     padding: 10px;
     width: 20%;
 }
@@ -24,7 +23,7 @@ button.new_contact:hover{
 
 body {
     padding: 10px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(219, 219, 219);
     text-align: center;
 }
 
