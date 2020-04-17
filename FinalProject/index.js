@@ -58,33 +58,3 @@ async function loadContacts(){
     loadPage();
 }
 
-// function createCard(index){
-//     console.log(contacts);
-//     document.getElementById("name"+index).innerHTML = contacts[index].FirstName + " " + contacts[index].LastName;
-//     document.getElementById("number"+index).innerHTML = contacts[index].phone;
-//     document.getElementById("address"+ index).innerHTML = contacts[index].address;
-// }
-
-// createCard(0);
-// createCard(1);
-// createCard(0);
-// createCard(1);
-
-// console.log(contacts.FirstName);
-
-// fetch("http://127.0.0.1:8080/test/")
-//     .then((response) => {
-//         return response.json();
-//     })
-//     .then((myJson) =>{
-//         console.log(myJson)
-//         // document.getElementById("attack_name").innerHTML = myJson.name
-//         // var flavorArr = myJson.flavor_text_entries //what is flavor text?
-//         // document.getElementById("flavor_text").innerHTML = myJson.flavor_text_entries[2].flavor_text
-//         // console.log("Flavor text: "+myJson.flavor_text_entries[2].flavor_text)
-//         // document.getElementById("accuracy").innerHTML = myJson.accuracy;
-//         // document.getElementById("pp").innerHTML = myJson.pp
-//         // document.getElementById("power").innerHTML = myJson.power
-//         // // console.log(myJson.type.name)
-//         // document.getElementById("attack_type").innerHTML = myJson.type.name
-//     })

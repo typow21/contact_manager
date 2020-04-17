@@ -13,7 +13,8 @@ public class Contact {
 	public List <String> relationships = new ArrayList<>();
 	
 	//Constructor 
-	public Contact () {
+	public Contact (String firstName, String lastName, String phoneNumber, 
+			String address, int id) {
 			
 		this.id = id;
 		this.firstName = firstName;

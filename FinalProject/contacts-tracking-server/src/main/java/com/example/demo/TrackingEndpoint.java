@@ -32,19 +32,19 @@ public class TrackingEndpoint {
 	public String fetchContacts(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName, @RequestParam("phoneNumber") String phoneNumber, @RequestParam("address") String address, @RequestParam("birthday") String birthday) {
 		
 		//Actual item, that is of type Contact, to add to the list of contacts
-		Contact item = new Contact();
+//		Contact item = new Contact();
 		
 		//update the id according to location of array
-		item.firstName = firstName;
-		item.lastName = lastName;
-		item.phoneNumber = phoneNumber;
-		item.address = address;
-		item.birthday = birthday;
+//		item.firstName = firstName;
+//		item.lastName = lastName;
+//		item.phoneNumber = phoneNumber;
+//		item.address = address;
+//		item.birthday = birthday;
 		
 		//ADD RELATIONSHIP HERE?
 		
 		//Add the event to the event list
-		contactList.add(item);
+//		contactList.add(item);
 		
 		return "Contact created";
 		
@@ -56,7 +56,9 @@ public class TrackingEndpoint {
 	@CrossOrigin(origins = "*")
 	@GetMapping("/load-contacts")
 	public List <Contact> printListOfContacts() {
-		
+		System.out.println("Reached");
+		Contact newContact = new Contact("Tyler", "Powell", "570","245",1);
+		contactList.add(newContact);
 		//Return an array of JSON objects, so figure out how to make JSON objects in Java
 		return contactList;
 		
