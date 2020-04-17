@@ -47,6 +47,7 @@ function loadPage(){
         cardDiv.setAttribute('class', 'card');
         cardDiv.setAttribute('id', 'card'+cardInd);
         document.getElementById("grid-container").appendChild(cardDiv);
+        cardDiv.onclick = cardLink;
         // console.log()
 
         var name = document.createElement('p');
@@ -70,6 +71,10 @@ function loadPage(){
     }
 }
 loadPage();
+
+function cardLink(){
+    window.location.href = "./newcontact.html";
+}
 
 // function createCard(index){
 //     console.log(data);
