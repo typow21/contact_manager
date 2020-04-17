@@ -118,100 +118,79 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"index.js":[function(require,module,exports) {
-var data = [{
-  FirstName: "Tyler",
-  LastName: "Powell",
-  phonenumber: "570-460-0704",
-  address: "2029 N Broad st."
-}, {
-  FirstName: "And",
-  LastName: "Pij",
-  phonenumber: "215-548-3587",
-  address: "2029 N Broad st."
-}, {
-  FirstName: "And",
-  LastName: "Pij",
-  phonenumber: "215-548-3587",
-  address: "2029 N Broad st."
-}, {
-  FirstName: "And",
-  LastName: "Pij",
-  phonenumber: "215-548-3587",
-  address: "2029 N Broad st."
-}, {
-  FirstName: "Tyler",
-  LastName: "Powell",
-  phonenumber: "570-460-0704",
-  address: "2029 N Broad st."
-}, {
-  FirstName: "And",
-  LastName: "Pij",
-  phonenumber: "215-548-3587",
-  address: "2029 N Broad st."
-}, {
-  FirstName: "And",
-  LastName: "Pij",
-  phonenumber: "215-548-3587",
-  address: "2029 N Broad st."
-}, {
-  FirstName: "And",
-  LastName: "Pij",
-  phonenumber: "215-548-3587",
-  address: "2029 N Broad st."
-}];
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+var contacts = [];
+loadContacts();
 
 function loadPage() {
-  for (var cardInd in data) {
+  for (var cardInd in contacts) {
     var cardDiv = document.createElement('div');
     cardDiv.setAttribute('class', 'card');
     cardDiv.setAttribute('id', 'card' + cardInd);
-    document.getElementById("grid-container").appendChild(cardDiv); // console.log()
-
+    cardDiv.setAttribute('name', contacts[cardInd].id + '');
+    document.getElementById("grid-container").appendChild(cardDiv);
+    cardDiv.setAttribute('onclick', 'cardLink(' + contacts[cardInd].id + ')');
     var name = document.createElement('p');
     name.setAttribute('class', 'name');
     name.setAttribute('id', 'name' + cardInd);
     document.getElementById('card' + cardInd).appendChild(name);
-    var phonenumber = document.createElement('p');
-    phonenumber.setAttribute('id', 'phonenumber' + cardInd);
-    phonenumber.setAttribute('class', 'name');
-    document.getElementById('card' + cardInd).appendChild(phonenumber);
-    var address = document.createElement('p');
-    address.setAttribute('id', 'address' + cardInd);
-    address.setAttribute('class', 'name');
-    document.getElementById('card' + cardInd).appendChild(address);
-    document.getElementById("name" + cardInd).innerHTML = data[cardInd].FirstName + " " + data[cardInd].LastName;
-    document.getElementById("phonenumber" + cardInd).innerHTML = data[cardInd].phonenumber;
-    document.getElementById("address" + cardInd).innerHTML = data[cardInd].address;
+    var img = document.createElement('img');
+    img.setAttribute('src', 'profile.png');
+    img.setAttribute('alt', 'Profile picture');
+    document.getElementById('card' + cardInd).appendChild(img); // var phonenumber = document.createElement('p');
+    // phonenumber.setAttribute('id', 'phonenumber'+cardInd);
+    // phonenumber.setAttribute('class', 'name');
+    // document.getElementById('card'+cardInd).appendChild(phonenumber);
+    // var address = document.createElement('p');
+    // address.setAttribute('id', 'address'+cardInd);
+    // address.setAttribute('class', 'name');
+    // document.getElementById('card'+cardInd).appendChild(address);
+    // var relationship = document.createElement('p');
+    // relationship.setAttribute('id', 'relationship'+cardInd);
+    // relationship.setAttribute('class', 'name');
+    // document.getElementById('card'+cardInd).appendChild(relationship);
+
+    document.getElementById("name" + cardInd).innerHTML = contacts[cardInd].firstName + " " + contacts[cardInd].lastName; // document.getElementById("phonenumber"+cardInd).innerHTML = contacts[cardInd].phoneNumber;
+    // document.getElementById("address"+ cardInd).innerHTML = contacts[cardInd].address;
   }
 }
 
-loadPage(); // function createCard(index){
-//     console.log(data);
-//     document.getElementById("name"+index).innerHTML = data[index].FirstName + " " + data[index].LastName;
-//     document.getElementById("number"+index).innerHTML = data[index].phone;
-//     document.getElementById("address"+ index).innerHTML = data[index].address;
-// }
-// createCard(0);
-// createCard(1);
-// createCard(0);
-// createCard(1);
-// console.log(data.FirstName);
-// fetch("http://127.0.0.1:8080/test/")
-//     .then((response) => {
-//         return response.json();
-//     })
-//     .then((myJson) =>{
-//         console.log(myJson)
-//         // document.getElementById("attack_name").innerHTML = myJson.name
-//         // var flavorArr = myJson.flavor_text_entries //what is flavor text?
-//         // document.getElementById("flavor_text").innerHTML = myJson.flavor_text_entries[2].flavor_text
-//         // console.log("Flavor text: "+myJson.flavor_text_entries[2].flavor_text)
-//         // document.getElementById("accuracy").innerHTML = myJson.accuracy;
-//         // document.getElementById("pp").innerHTML = myJson.pp
-//         // document.getElementById("power").innerHTML = myJson.power
-//         // // console.log(myJson.type.name)
-//         // document.getElementById("attack_type").innerHTML = myJson.type.name
-//     })
+function cardLink(id) {
+  window.location.href = "./contactcard.html?id=" + id + "";
+  test(id);
+}
+
+function test(cardInd) {
+  console.log(cardInd);
+}
+
+function loadContacts() {
+  return _loadContacts.apply(this, arguments);
+}
+
+function _loadContacts() {
+  _loadContacts = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            // const resp =  await fetch("http://127.0.0.1:8080/load-contacts");
+            // contacts = await resp.json();
+            // console.log(contacts);
+            loadPage();
+
+          case 1:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return _loadContacts.apply(this, arguments);
+}
 },{}],"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -240,7 +219,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59542" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49865" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
