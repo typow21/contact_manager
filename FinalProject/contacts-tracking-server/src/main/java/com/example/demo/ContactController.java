@@ -1,12 +1,14 @@
 package com.example.demo;
 
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -47,6 +49,13 @@ public class ContactController {
 			
 		this.store.deleteContact(contactId);
 			
+	}
+	
+	@PutMapping("edit-contact/{contactId}")
+	public void editContact(@PathVariable("contactId") int contactId, @PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName, @PathVariable("phoneNumber") String phoneNumber, @PathVariable("address")String address, @PathVariable("birthday") String birthday) {
+		
+		this.store.editContact(contactId, firstName, lastName, phoneNumber, address, birthday);
+		
 	}
 	
 	//Main does nothing in here, technically doesn't need to even be made but I have it here just to remind myself its not needed

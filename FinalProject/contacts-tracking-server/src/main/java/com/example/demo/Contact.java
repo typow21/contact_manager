@@ -5,11 +5,11 @@ import java.util.*;
 public class Contact {
 	
 	public int id;
-	public final String firstName;
-	public final String lastName;
-	public final String phoneNumber;
-	public final String address;
-	public final String birthday;
+	public String firstName;
+	public String lastName;
+	public String phoneNumber;
+	public String address;
+	public String birthday;
 	//public List <String> relationships = new ArrayList<>();
 	
 	

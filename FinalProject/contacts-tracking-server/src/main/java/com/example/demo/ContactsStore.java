@@ -6,6 +6,7 @@ import java.util.*;
 
 import javax.annotation.PostConstruct;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -93,11 +94,51 @@ public class ContactsStore {
 			
 		}
 		
+		//Save the changes to the json file, which will be that the contact was deleted or not deleted at all
 		this.saveContacts();
 		
 	}
 	
-	//CREATE A METHOD TO UPDATE or EDIT THE CONTATCS IN THE JSON FILE, CURRENTLY STILL THE ARRAYLIST
+	//Method updates a contact that is being changed by the user
+	public void editContact(int contactId, String firstName, String lastName, String phoneNumber, String address, String birthday) {
+		
+		Integer indexToEdit = null;
+		
+		//Go through list to find contact to edit 
+		for (int i = 0; i < contactList.size(); i++) {
+					
+			//Check if found the contact to edit from the list
+			if(contactList.get(i).id == contactId) {
+						
+				indexToEdit = i;
+				//Break out of for loop
+				break;
+						
+			}
+					
+		}
+		
+		//If found the index of the contact to edit, edit all the fields. If the field isn't changed then nothing was passed in to change that field
+		if (indexToEdit != null) {
+			
+			contactList.get((int)indexToEdit).firstName = firstName;
+			contactList.get((int)indexToEdit).lastName = lastName;
+			contactList.get((int)indexToEdit).phoneNumber = phoneNumber;
+			contactList.get((int)indexToEdit).address = address;
+			contactList.get((int)indexToEdit).birthday = birthday;
+		
+		//If contact to be edited doesn't exist or wasn't found, print out a message	
+		} else {
+			
+			throw new IllegalArgumentException ("Contact could not be edited");
+			//System.out.println("Contact could not be edited");
+			
+		}
+		
+		//Save the changes to the contact, or the new contact, into the json file 
+		this.saveContacts();
+		
+	}
 	
 	@PostConstruct
 	private void reloadContacts() throws IOException {
