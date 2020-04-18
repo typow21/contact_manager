@@ -44,7 +44,6 @@ function loadPage(){
 
 function cardLink(id){
     window.location.href = "./contactcard.html?id="+id+"";
-    test(id);
 }
 
 function test(cardInd){
