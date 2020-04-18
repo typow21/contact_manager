@@ -4,8 +4,12 @@
         <a href="index.html">
             <button class = "back">Back to contacts</button>
         </a>
+        
         <script src = "./contactcard.js"></script>
-        <div class = "card" >
+        <div id = "card" class = "card">
+            <button class = "delete" onclick="deleteContact">Delete</button>
+            <button class = "edit" onclick="editContact">Edit</button>
+            <br>
             <h1 id = "name"></h1>
             <hr>
             <p style="text-align: left;">Phone number:</p>
