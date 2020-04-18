@@ -51,10 +51,10 @@ public class ContactController {
 			
 	}
 	
-	@PutMapping("edit-contact/{contactId}")
-	public void editContact(@PathVariable("contactId") int contactId, @PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName, @PathVariable("phoneNumber") String phoneNumber, @PathVariable("address")String address, @PathVariable("birthday") String birthday) {
+	@PutMapping("/edit-contact")
+	public void editContact(@RequestBody Contact editContact) {
 		
-		this.store.editContact(contactId, firstName, lastName, phoneNumber, address, birthday);
+		this.store.editContact(editContact.id, editContact.firstName, editContact.lastName, editContact.phoneNumber, editContact.address, editContact.birthday);
 		
 	}
 	
