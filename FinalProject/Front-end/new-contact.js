@@ -7,7 +7,7 @@ async function createContact(){
         body: JSON.stringify({firstName: document.getElementById("firstName").value,
                                 lastName : document.getElementById("lastName").value, 
                                 phoneNumber : document.getElementById("phoneNumber").value,
-                                address : document.getElementById("address").value,
+                                address : document.getElementById("address").value
                                 // relationships : {"Mother": 1, "Father": 2}
                                 // relationships : document.getElementById("relationships").value
         }),
@@ -16,6 +16,7 @@ async function createContact(){
     // console.log(resp)
     // const newContact = await resp.json();
     // JSON.parse(resp)
+    window.location.href = "./index.html";
 }
 
 function addRelation(){
