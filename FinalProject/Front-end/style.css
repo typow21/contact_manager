@@ -1,6 +1,6 @@
 .grid-container {
     display: grid;
-    grid-template-columns: 350px 350px 350px 350px;
+    grid-template-columns: 100% 100% 100% 100%;
     grid-gap: 5%;
     background-color: rgb(255, 255, 255);
     padding: 10px;
@@ -12,6 +12,8 @@
 
 button.new_contact{
     float: right;
+    position: relative;
+    top:0;
     font-size: large;
     width: 12%;
     height: 30px;
@@ -20,6 +22,7 @@ button.new_contact{
 
 button.new_contact:hover{
     box-shadow: 1px 2px 3px;
+    top:-3px;
 }
 
 body {
@@ -38,21 +41,23 @@ div.card {
     display: grid;
     grid-column: auto;
     font-size: larger;
-    border: 1px solid black;
+    position: relative;
+    top:0;
+    /* border: 1px solid black; */
     border-radius: 2%;
     padding-bottom: 20px;
     width: 100%;
-    box-shadow: 1px 2px 3px #888888;
+    box-shadow: 1px 2px 3px 3px #888888;
     background-color: rgb(241, 240, 240);
 }
 
 div.card:hover{
-    box-shadow: 2px 4px 6px #888888;
-    width: 102%;
-    height: 102%;
+    top: -10px;
+    box-shadow: 3px 5px 7px 4px  #888888;
 }
 
 img{
+    margin-left: 37%;
     border: 1px solid black;
     width: 25%;
 }
