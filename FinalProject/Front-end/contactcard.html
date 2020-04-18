@@ -1,12 +1,12 @@
 <html>
     <body>
         <link rel="stylesheet" type="text/css" href ="contactcard.css">
-        <a href="index.html">
-            <button class = "back">Back to contacts</button>
-        </a>
         
         <script src = "./contactcard.js"></script>
         <div id = "card" class = "card">
+            <a href="index.html">
+                <button class = "back">Back to contacts</button>
+            </a>
             <button class = "delete" onclick="deleteContact">Delete</button>
             <button class = "edit" onclick="editContact">Edit</button>
             <br>
@@ -16,8 +16,10 @@
             <p class = "phone" id = "phoneNumber"></p>
             <hr>
             <p style="text-align: left;">Address:</p>
-            <p class = "address" id = "address">Address: </p>
+            <p class = "address" id = "address"></p>
             <hr>
+            <p style="text-align: left;">Relationships:</p>
+            <p class = "relations id = "relations"></p>
         </div>
     </body>
 </html>

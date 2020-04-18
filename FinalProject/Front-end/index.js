@@ -3,7 +3,6 @@ let contacts = []
 loadContacts();
 function loadPage(){
     for (var cardInd in contacts){
-
         var cardDiv = document.createElement('div');
         cardDiv.setAttribute('class', 'card');
         cardDiv.setAttribute('id', 'card'+cardInd);
@@ -11,15 +10,6 @@ function loadPage(){
         document.getElementById("grid-container").appendChild(cardDiv);
         cardDiv.setAttribute('onclick', 'cardLink('+contacts[cardInd].id+')')
         
-        // var deleteBtn = document.createElement("button");
-        // deleteBtn.innerHTML = "Delete";
-        // deleteBtn.setAttribute('class','delete');
-        // deleteBtn.setAttribute('id', 'delete');
-        // console.log(document.getElementById(cardDiv))
-        // console.log(deleteBtn)
-        // document.getElementById('card'+cardInd).appendChild(deleteBtn);
-        // deleteBtn.setAttribute('onclick', 'deleteBtn');
-
 
         var name = document.createElement('p');
         name.setAttribute('class', 'name');
