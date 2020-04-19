@@ -31,13 +31,20 @@ public class ContactsStore {
 	
 	private static final ObjectMapper mapper = new ObjectMapper();
 	
-	//**Where do I store the file?**
+	//Creating a json file that will be storing the contacts to this project folder
 	public static final File storeFile = new File("./store.json");
+	
+	//Creating a vcard file that will be storing the vCard to this project folder
+	//public static final File vCard_File = new File("./vcard.vcf");
+	
+	//Made the file the vCard will be written to and sent in
+	File vCard_File = new File("vcard.vcf");
 	
 	//A list of objects where each object, Contact, will hold the parameters passed in
 	private List <Contact> contactList = new ArrayList<>();
-	//Possibly put id for contact here 
 	
+	
+	//Contact ID 
 	private int id = 0;
 	
 	//Returns the contacts stored in the contactList
@@ -166,13 +173,13 @@ public class ContactsStore {
 	}
 	
 	//Method to create a vCard for the contact passed in from the site
-	public File tovCard (int contactId, String firstName, String lastName, String phoneNumber, String address, String birthday, List <Integer> relationships) throws IOException {
+	public void tovCard (String firstName, String lastName, String phoneNumber, String address, String birthday) throws IOException {
 		
 		//Made a vCard
 		VCard contact_vCard = new VCard();
 		
 		//Made the file the vCard will be written to and sent in
-		File vCard_File = new File("vcard.vcf");
+		//File vCard_File = new File("vcard.vcf");
 		
 		//Concatenated the first and last name with a space in between
 		String name = firstName + " " + lastName; 
@@ -204,18 +211,38 @@ public class ContactsStore {
 		//Writes the vCard to the file and closes the file
 		Ezvcard.write(contact_vCard).go(vCard_File);
 		
-		//Returning the file where the vCard is written in
-		return vCard_File;
+		//Store vcard file to local directory
+		//this.savevCards();
+		
+		
+	} 
+	
+	public void toContact(File vCard_File) throws IOException {
+		
+		//Reading the first, and only, vCard from the file passed in then closes the file
+		VCard contact_vCard = Ezvcard.parse(vCard_File).first();
+		
+		//Pulling the contact's full name from the vCard
+		String fullName = contact_vCard.getFormattedName().getValue();
+		
+		//Splitting the fullName string at the space and putting the name into an array of Strings
+		String [] split_fullName = fullName.trim().split("\\s+");
+		
+		//Get the first name from the array
+		String firstName = split_fullName [0]; 
+		
+		//Get the last name from the array
+		String lastName = split_fullName [1];
+		
+		//Add the id and -1s to the relationship
+		
+		creatContact(id, firstName, lastName, phoneNumber, address, birthday, relationships);
 		
 	}
 	
-	public Contact toContact(File vCard_File) throws IOException {
+	public File downloadvCard() throws IOException {
 		
-		//Reading the first, and only, vCard from the file passed in
-		VCard contact_vCard = Ezvcard.parse(vCard_File).first();
-		
-		
-		return contact;
+		return vCard_File;
 		
 	}
 	

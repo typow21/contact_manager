@@ -64,16 +64,23 @@ public class ContactController {
 	}
 	
 	@PostMapping("/contact-to-vCard")
-	public File tovCard (@RequestBody Contact contact) throws IOException {
+	public void tovCard (@RequestBody Contact contact) throws IOException {
 		
-		return this.store.tovCard(contact.id, contact.firstName, contact.lastName, contact.phoneNumber, contact.address, contact.birthday, contact.relationships);
+		this.store.tovCard(contact.firstName, contact.lastName, contact.phoneNumber, contact.address, contact.birthday);
+		
+	}
+	
+	@GetMapping("/download-contact")
+	public File downloadContact() throws IOException {
+		
+		return this.store.downloadvCard();
 		
 	}
 	
 	@PostMapping("/vCard-to-contact")
-	public Contact toContact (@RequestBody File vCard_File) {
+	public void toContact (@RequestBody File vCard_File) throws IOException {
 		
-		return this.store.toContact(vCard_File);
+		this.store.toContact(vCard_File);
 		
 	}
 	
