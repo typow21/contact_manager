@@ -35,6 +35,14 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		
+		<!-- https://github.com/mangstadt/ez-vcard/wiki/Downloads -->
+		<dependency>
+   			<groupId>com.googlecode.ez-vcard</groupId>
+   			<artifactId>ez-vcard</artifactId>
+   			<version>0.10.6</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
