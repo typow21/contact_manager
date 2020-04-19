@@ -54,7 +54,7 @@ public class ContactController {
 	@PostMapping("/edit-contact")
 	public void editContact(@RequestBody Contact editContact) {
 		
-		this.store.editContact(editContact.id, editContact.firstName, editContact.lastName, editContact.phoneNumber, editContact.address, editContact.birthday);
+		this.store.editContact(editContact.id, editContact.firstName, editContact.lastName, editContact.phoneNumber, editContact.address, editContact.birthday, editContact.relationships);
 		
 	}
 	

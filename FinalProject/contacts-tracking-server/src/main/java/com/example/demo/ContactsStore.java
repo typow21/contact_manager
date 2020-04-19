@@ -117,7 +117,7 @@ public class ContactsStore {
 	}
 	
 	//Method updates a contact that is being changed by the user
-	public void editContact(int contactId, String firstName, String lastName, String phoneNumber, String address, String birthday) {
+	public void editContact(int contactId, String firstName, String lastName, String phoneNumber, String address, String birthday, List <Integer> relationships) {
 		
 		Integer indexToEdit = null;
 		
@@ -143,6 +143,7 @@ public class ContactsStore {
 			contactList.get((int)indexToEdit).phoneNumber = phoneNumber;
 			contactList.get((int)indexToEdit).address = address;
 			contactList.get((int)indexToEdit).birthday = birthday;
+			contactList.get((int)indexToEdit).relationships = relationships;
 		
 		//If contact to be edited doesn't exist or wasn't found, print out a message	
 		} else {
