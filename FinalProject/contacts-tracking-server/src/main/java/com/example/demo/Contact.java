@@ -10,7 +10,8 @@ public class Contact {
 	public String phoneNumber;
 	public String address;
 	public String birthday;
-	//public List <String> relationships = new ArrayList<>();
+	public List<Integer> relationships = new ArrayList<>();
+//	public Dictionary<String, Integer> relationships;
 	
 	
 	//Need create this constructor that takes no parameters because parameters are bing passed in in whatever order I want below
@@ -24,20 +25,19 @@ public class Contact {
 		this.phoneNumber = null;
 		this.address = null;
 		this.birthday = null;
-		//this.relationships = null;
+		this.relationships = null;
 		
 	} 
 	
 	//Constructor 
-	public Contact(int id, String firstName, String lastName, String phoneNumber, String address, String birthday) {
-			
+	public Contact(int id, String firstName, String lastName, String phoneNumber, String address, String birthday, List<Integer> relationships) {	
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.phoneNumber = phoneNumber;
 		this.address = address;
 		this.birthday = birthday;
-		//this.relationships = relationships;
+		this.relationships = relationships;
 			
 	}
 
