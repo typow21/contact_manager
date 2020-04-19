@@ -50,3 +50,26 @@ async function deleteContact(){
 function cardLink(id){
     window.location.href = "./edit-contact.html?id="+id+"";
 }
+
+async function exportVcard(){
+    var mother = contacts[id].mother
+    var father = contacts[id].father
+    var brother = contacts[id].brother
+    var sister = contacts[id].sister
+
+    const resp = await fetch("http://127.0.0.1:8080/contact-to-vCard",{
+        method:"POST",
+        body: JSON.stringify({firstName: contacts[id].firstName,
+                                lastName : contacts[id].lastName, 
+                                phoneNumber : contacts[id].phoneNumber,
+                                address : contacts[id].address,
+                                relationships : [mother, father, brother, sister]
+        }),
+        headers: {"Content-Type": "application/json"}
+    });
+
+    // alert("vCard Downloaded!");
+    const resp2 =  await fetch("http://127.0.0.1:8080/download-contact");
+    var downloadfile = await resp2.json();
+    console.log(downloadfile)
+}
