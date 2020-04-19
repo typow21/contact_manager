@@ -31,7 +31,7 @@ public class ContactsStore {
 	private List <Contact> contactList = new ArrayList<>();
 	//Possibly put id for contact here 
 	
-	private int id = 1;
+	private int id = 0;
 	
 	//Returns the contacts stored in the contactList
 	public List <Contact> fetchContacts() {
@@ -43,10 +43,10 @@ public class ContactsStore {
 	//Method creates a single contact
 	//This method will *get* and save the data into a contact data structure, from the page where the contact is created.
 	//Then the contact is added to an eventsLists which is basically a list of contacts, and returns the contact created.
-	public Contact createContacts(String firstName, String lastName, String phoneNumber, String address, String birthday) {
+	public Contact createContacts(String firstName, String lastName, String phoneNumber, String address, String birthday, List<Integer> relationships) {
 		
 		//Actual item, that is of type Contact, to add to the list of contacts
-		Contact item = new Contact(id, firstName, lastName, phoneNumber, address, birthday);
+		Contact item = new Contact(id, firstName, lastName, phoneNumber, address, birthday, relationships);
 		
 		//Add the event to the event list
 		contactList.add(item);
@@ -84,7 +84,24 @@ public class ContactsStore {
 			
 			//Remove that contact from the contactList, do so by casting the object indexToDelete, of type Integer, into an int 
 			contactList.remove((int)indexToDelete);
-		
+			for(int i = indexToDelete; i<contactList.size(); i++) {
+				contactList.get(i).id--;
+				for(Contact contact : contactList) {
+					for(Integer num : contact.relationships) {
+						if(num > indexToDelete) {
+							num--;
+						}
+					}
+				}
+			}
+			for(Contact contact : contactList) {
+				for(Integer num : contact.relationships) {
+					if(num.equals(indexToDelete)) {
+						num = -1;
+					}
+				}
+			}
+			id = contactList.size();
 		//If contact to be deleted doesn't exist or wasn't found, print out a message	
 		} else {
 			
@@ -145,7 +162,8 @@ public class ContactsStore {
 		
 		//If file can be read
 		if(storeFile.exists()) {
-		
+			
+			
 			this.contactList = mapper.readValue(storeFile, new TypeReference<List<Contact>>(){});
 			
 			System.out.println("Loaded " + this.contactList.size() + " from the JSON file");

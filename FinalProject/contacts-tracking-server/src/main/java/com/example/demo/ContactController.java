@@ -31,8 +31,8 @@ public class ContactController {
 	
 	@PostMapping("/new-contact")
 	public Contact createContacts(@RequestBody Contact newContact) {
-		
-		return this.store.createContacts(newContact.firstName, newContact.lastName, newContact.phoneNumber, newContact.address, newContact.birthday);
+		System.out.println(newContact.relationships.get(0));
+		return this.store.createContacts(newContact.firstName, newContact.lastName, newContact.phoneNumber, newContact.address, newContact.birthday, newContact.relationships);
 		
 	}
 	
@@ -46,12 +46,12 @@ public class ContactController {
 	
 	@DeleteMapping("/delete-contact/{contactId}")
 	public void deleteContact(@PathVariable("contactId") int contactId) {
-			
+		
 		this.store.deleteContact(contactId);
 			
 	}
 	
-	@PutMapping("/edit-contact")
+	@PostMapping("/edit-contact")
 	public void editContact(@RequestBody Contact editContact) {
 		
 		this.store.editContact(editContact.id, editContact.firstName, editContact.lastName, editContact.phoneNumber, editContact.address, editContact.birthday);
