@@ -11,10 +11,6 @@ async function fetchCard(){
     contact= contacts[id]
     relationships = contact.relationships;
     prefillInfo();
-    // document.getElementById("name").innerHTML = contact.firstName + " " + contacts[id].lastName;
-    // document.getElementById("phoneNumber").innerHTML = contact.phoneNumber;
-    // document.getElementById("address").innerHTML = contact.address;
-    // document.getElementById("edit").setAttribute('onclick', 'cardLink('+id+')')
 }
 fetchCard();
 
