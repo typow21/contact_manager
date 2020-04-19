@@ -16,6 +16,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import ezvcard.Ezvcard;
+import ezvcard.VCard;
+import ezvcard.property.Address;
+import ezvcard.property.Birthday;
+import ezvcard.property.StructuredName;
+import ezvcard.property.Telephone;
+
 //Code in here is only for creating a contact, deleting a contact, and fetching the contacts
 //NO CODE FOR THE REST IN HERE, LEAVING ALL OF THAT IN THE REST CONTROLLER, ITS CLEANER AND EASIER TO READ
 
@@ -155,6 +162,60 @@ public class ContactsStore {
 		
 		//Save the changes to the contact, or the new contact, into the json file 
 		this.saveContacts();
+		
+	}
+	
+	//Method to create a vCard for the contact passed in from the site
+	public File tovCard (int contactId, String firstName, String lastName, String phoneNumber, String address, String birthday, List <Integer> relationships) throws IOException {
+		
+		//Made a vCard
+		VCard contact_vCard = new VCard();
+		
+		//Made the file the vCard will be written to and sent in
+		File vCard_File = new File("vcard.vcf");
+		
+		//Concatenated the first and last name with a space in between
+		String name = firstName + " " + lastName; 
+		
+		//Added the concatenated name the the vCard
+		contact_vCard.setFormattedName(name);
+		
+		//Created a phone number object for the vCard and added the contact's phone number to the object
+		Telephone tel = new Telephone(phoneNumber);
+		
+		//Added the phone number to the object
+		contact_vCard.addTelephoneNumber(tel);
+		
+		//Created an address object for the vCard added the contact's address to the object
+		Address adr = new Address();
+		
+		//added the contact's address to the object
+		adr.setStreetAddress(address);
+		
+		//Added the address to the vCard
+		contact_vCard.addAddress(adr);
+		
+		//created a birthday object for the vCard and added the contact's birthday to the object
+		Birthday bday = new Birthday(birthday);
+		
+		//Added the birthday to the vCard
+		contact_vCard.setBirthday(bday);
+		
+		//Writes the vCard to the file and closes the file
+		Ezvcard.write(contact_vCard).go(vCard_File);
+		
+		//Returning the file where the vCard is written in
+		return vCard_File;
+		
+	}
+	
+	public Contact toContact(File vCard_File) throws IOException {
+		
+		//Reading the first, and only, vCard from the file passed in
+		VCard contact_vCard = Ezvcard.parse(vCard_File).first();
+		
+		
+		return contact;
 		
 	}
 	
