@@ -1,6 +1,9 @@
 package com.example.demo;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import ezvcard.VCard;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
@@ -55,6 +60,20 @@ public class ContactController {
 	public void editContact(@RequestBody Contact editContact) {
 		
 		this.store.editContact(editContact.id, editContact.firstName, editContact.lastName, editContact.phoneNumber, editContact.address, editContact.birthday, editContact.relationships);
+		
+	}
+	
+	@PostMapping("/contact-to-vCard")
+	public File tovCard (@RequestBody Contact contact) throws IOException {
+		
+		return this.store.tovCard(contact.id, contact.firstName, contact.lastName, contact.phoneNumber, contact.address, contact.birthday, contact.relationships);
+		
+	}
+	
+	@PostMapping("/vCard-to-contact")
+	public Contact toContact (@RequestBody File vCard_File) {
+		
+		return this.store.toContact(vCard_File);
 		
 	}
 	
