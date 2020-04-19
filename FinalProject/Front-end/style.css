@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 100% 100% 100% 100%;
     grid-gap: 5%;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(224, 224, 224);
     padding: 10px;
     width: 20%;
 }
@@ -15,8 +15,6 @@ button.new_contact{
     position: relative;
     top:0;
     font-size: large;
-    width: 12%;
-    height: 30px;
     transition: width .5s;
 }
 
@@ -27,7 +25,7 @@ button.new_contact:hover{
 
 body {
     padding: 10px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(224, 224, 224);
     text-align: center;
 }
 
@@ -44,10 +42,10 @@ div.card {
     position: relative;
     top:0;
     /* border: 1px solid black; */
-    border-radius: 2%;
+    border-radius: 5%;
     padding-bottom: 20px;
     width: 100%;
-    box-shadow: 1px 2px 3px 3px #888888;
+    box-shadow: 1px 1px 1px 2px #888888;
     background-color: rgb(241, 240, 240);
 }
 
