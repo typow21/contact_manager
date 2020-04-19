@@ -11,7 +11,7 @@ public class Contact {
 	public String address;
 	public String birthday;
 	public List<Integer> relationships = new ArrayList<>();
-//	public Dictionary<String, Integer> relationships;
+	//public Dictionary<String, Integer> relationships;
 	
 	
 	//Need create this constructor that takes no parameters because parameters are bing passed in in whatever order I want below
