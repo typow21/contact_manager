@@ -1,14 +1,24 @@
 let relationships = []
 let contacts = []
+
 loadContacts();
 async function createContact(){
+    var mother = document.getElementById("mother").value
+    console.log(mother)
+    var father = document.getElementById("father").value
+    console.log(father)
+    var brother = document.getElementById("brother").value
+    console.log(brother)
+    var sister = document.getElementById('sister').value
+    console.log(sister)
+
     const resp = await fetch("http://127.0.0.1:8080/new-contact",{
         method:"POST",
         body: JSON.stringify({firstName: document.getElementById("firstName").value,
                                 lastName : document.getElementById("lastName").value, 
                                 phoneNumber : document.getElementById("phoneNumber").value,
-                                address : document.getElementById("address").value
-                                // relationships : {"Mother": 1, "Father": 2}
+                                address : document.getElementById("address").value,
+                                relationships : [mother, father, brother, sister]
                                 // relationships : document.getElementById("relationships").value
         }),
         headers: {"Content-Type": "application/json"}
@@ -19,76 +29,45 @@ async function createContact(){
     window.location.href = "./index.html";
 }
 
-function addRelation(){
-    console.log("reached")
-    var relationLabel = document.createElement('label');
-    relationLabel.setAttribute('for', 'relationsOptions');
-    relationLabel.innerHTML = "Relationships";
-    document.getElementById('append').append(relationLabel);
+async function loadContacts(){
+    const resp =  await fetch("http://127.0.0.1:8080/load-contacts");
+    contacts = await resp.json();
+    // console.log(contacts);
+    addRelations();
+}
 
-    var relationSelect = document.createElement('select');
-    relationSelect.setAttribute('id', 'relationsOptions');
-    document.getElementById('append').append(relationSelect);
+function addRelations(){
+    console.log(contacts)
 
-    var mother = document.createElement('option');
-    mother.setAttribute('value', 'mother');
-    mother.innerHTML = "Mother";
-    relationSelect.append(mother)
-
-    var father = document.createElement('option')
-    father.setAttribute('value', 'father');
-    father.innerHTML = "Father";
-    relationSelect.append(father)
-
-    var brother = document.createElement('option')
-    brother.setAttribute('value', 'brother')
-    brother.innerHTML = "Brother";
-    relationSelect.append(brother)
-
-    var sister = document.createElement('option')
-    sister.setAttribute('value', 'sister');
-    sister.innerHTML = "Sister";
-    relationSelect.append(sister)
-
-    var aunt = document.createElement('option');
-    aunt.setAttribute('value', 'aunt');
-    aunt.innerHTML = "Aunt"
-    relationSelect.append(aunt)
-
-    var uncle = document.createElement('option');
-    uncle.setAttribute('value', 'uncle');
-    uncle.innerHTML = "Uncle"
-    relationSelect.append(uncle)
-
-    var cousin = document.createElement('option');
-    cousin.setAttribute('value', 'cousin');
-    cousin.innerHTML = "Cousin"
-    relationSelect.append(cousin)
-
-    var other = document.createElement('option');
-    other.setAttribute('value', 'other');
-    other.innerHTML = "Other"
-    relationSelect.append(other)
-
-    var contactsOptions = document.createElement('select')
-    contactsOptions.setAttribute('id', 'contactsSelect');
-    document.getElementById('form').append(contactsOptions);
     for(contact in contacts){
-        var option = document.createElement('option')
-        option.setAttribute('value', contact.id);
-        option.innerHTML = contact.firstName+ " " + contact.lastName;
-        contactsOptions.append(option)
-    }
+        console.log(contact)
+        var motherOption = document.createElement('option')
+        motherOption.setAttribute('value', contacts[contact].id);
+        motherOption.innerHTML = contacts[contact].firstName+ " " + contacts[contact].lastName;
+        console.log(document.getElementById('mother'))
+        document.getElementById('mother').append(motherOption)
 
+        var fatherOption = document.createElement('option')
+        fatherOption.setAttribute('value', contacts[contact].id);
+        fatherOption.innerHTML = contacts[contact].firstName+ " " + contacts[contact].lastName;
+        console.log(document.getElementById('father'))
+        document.getElementById('father').append(fatherOption)
+
+        var brotherOption = document.createElement('option')
+        brotherOption.setAttribute('value', contacts[contact].id);
+        brotherOption.innerHTML = contacts[contact].firstName+ " " + contacts[contact].lastName;
+        console.log(document.getElementById('brother'))
+        document.getElementById('brother').append(brotherOption)
+
+        var sisterOption = document.createElement('option')
+        sisterOption.setAttribute('value', contacts[contact].id);
+        sisterOption.innerHTML = contacts[contact].firstName+ " " + contacts[contact].lastName;
+        console.log(document.getElementById('sister'))
+        document.getElementById('sister').append(sisterOption)
+    }
     // var relationInput = document.createElement('input');
     // relationInput.setAttribute('type', 'text');
     // relationInput.setAttribute('id', 'relationsInput');
     // relationInput.setAttribute('name', 'relationsInput');
     // relationSelect32.append(relationInput);
-}
-
-async function loadContacts(){
-    const resp =  await fetch("http://127.0.0.1:8080/load-contacts");
-    contacts = await resp.json();
-    console.log(contacts);
 }

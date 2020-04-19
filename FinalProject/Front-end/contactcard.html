@@ -5,10 +5,10 @@
         <script src = "./contactcard.js"></script>
         <div id = "card" class = "card">
             <a href="index.html">
-                <button class = "back">Back to contacts</button>
+                <button class = "back" id = "button">Back to contacts</button>
             </a>
-            <button class = "delete" onclick=deleteContact()>Delete</button>
-            <button class = "edit" id = "edit">Edit</button>
+            <button class = "delete" onclick=deleteContact() id = "button">Delete</button>
+            <button class = "edit" id = "button">Edit</button>
             <br>
             <h1 id = "name"></h1>
             <hr>
@@ -20,6 +20,10 @@
             <hr>
             <p style="text-align: left;">Relationships:</p>
             <p class = "relations" id = "relations"></p>
+            <a style="text-align: left;" id = "mother">Mother: </a><br>
+            <a style="text-align: left;"id = "father">Father: </a><br>
+            <a style="text-align: left;" id = "brother">Brother: </a><br>
+            <a style="text-align: left;" id = "sister">Sister: </a><br>
         </div>
     </body>
 </html>
