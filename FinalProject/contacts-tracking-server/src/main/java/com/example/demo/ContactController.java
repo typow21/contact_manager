@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import ezvcard.VCard;
 
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.*;
@@ -38,7 +40,6 @@ public class ContactController {
 	public Contact createContacts(@RequestBody Contact newContact) {
 		System.out.println(newContact.relationships.get(0));
 		return this.store.createContacts(newContact.firstName, newContact.lastName, newContact.phoneNumber, newContact.address, newContact.birthday, newContact.relationships);
-		
 	}
 	
 	@GetMapping("/load-contacts")
@@ -78,10 +79,14 @@ public class ContactController {
 	}
 	
 	@PostMapping("/vCard-to-contact")
-	public void toContact (@RequestBody File vCard_File) throws IOException {
-		
-		this.store.toContact(vCard_File);
-		
+	public File toContact(@RequestBody MultipartFile vCard_multiFile) throws IOException {
+		File vCard_File = new File("vCard_Import.vcf");
+		vCard_File.createNewFile();
+		FileOutputStream fos = new FileOutputStream(vCard_File);
+		fos.write(vCard_multiFile.getBytes());
+		fos.close();
+//		this.store.toContact();
+		return vCard_File;
 	}
 	
 	//Main does nothing in here, technically doesn't need to even be made but I have it here just to remind myself its not needed

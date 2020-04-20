@@ -230,7 +230,9 @@ public class ContactsStore {
 		
 	} 
 	
-	public void toContact(File vCard_File) throws IOException {
+	public void toContact() throws IOException {
+		
+		File vCard_File = new File("./vCard_import.vcf");
 		
 		//Reading the first, and only, vCard from the file passed in then closes the file
 		VCard contact_vCard = Ezvcard.parse(vCard_File).first();

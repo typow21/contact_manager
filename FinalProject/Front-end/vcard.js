@@ -1,24 +1,21 @@
 
 
 function importVcard(){
-    var input = document.getElementById("file");
-    var file  = input.files[0];
-    const fd = new FormData();
-    fd.append('file', file)
-    console.log(file)
-    var util = require('util')
-    var vCard = require('vcard');
-    var card = new vCard();
-    /* Use readFile() if the file is on disk. */
-    card.readFile("path/to/file.vcf", function(err, json) {
-        console.log(util.inspect(json));
+
+    //  code from dcode "Upload files with Fetch - JavaScript Tutorial" on YouTube
+    const myForm = document.getElementById("form")
+    const file = document.getElementById("file")
+
+    myForm.addEventListener("submit", e =>{
+        e.preventDefault();
+        const endpoint = "http://127.0.0.1:8080/vCard-to-contact";
+        const formData = new FormData();
+
+        formData.append("file", file.files[0]);
+
+        fetch(endpoint, {
+            method: "post",
+            body: formData
+        }).catch(console.error);
     });
-    /* Use readData() otherwise. */
-    card.readData(String_with_vCard_data, function(err, json) {
-        console.log(util.inspect(json));
-    });
-    // fetch("http://127.0.0.1:8080/vCard-to-contact)
-    // .then(res => res.json())
-    // .then(json => console.log(json))
-    // .catch(err => console.error(err))
 }
