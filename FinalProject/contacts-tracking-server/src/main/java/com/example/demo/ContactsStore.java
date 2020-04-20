@@ -47,6 +47,9 @@ public class ContactsStore {
 	//Contact ID 
 	private int id = 0;
 	
+	//To see if the id needs to be set to 
+	boolean vCard_To_Contact = false;
+	
 	//Returns the contacts stored in the contactList
 	public List <Contact> fetchContacts() {
 		
@@ -58,6 +61,16 @@ public class ContactsStore {
 	//This method will *get* and save the data into a contact data structure, from the page where the contact is created.
 	//Then the contact is added to an eventsLists which is basically a list of contacts, and returns the contact created.
 	public Contact createContacts(String firstName, String lastName, String phoneNumber, String address, String birthday, List<Integer> relationships) {
+		
+		//If vCard_To_Contact is true then set the id to the contactList size cause the parameters are coming from a vCard
+		if (vCard_To_Contact == true) {
+			
+			id = contactList.size();
+			
+			//Set vCard_To_Contact back to false so that id will not be set to the contactList size again 
+			vCard_To_Contact = false;
+			
+		}
 		
 		//Actual item, that is of type Contact, to add to the list of contacts
 		Contact item = new Contact(id, firstName, lastName, phoneNumber, address, birthday, relationships);
@@ -264,11 +277,23 @@ public class ContactsStore {
 		//Getting the birthday String from the birthday object
 		String birthday = bday.getText();
 		
-		//Add the id and -1s to the relationship
+		//id = contactList.size();
+		
+		//first 4 locs are populated with the int -1
+		List <Integer> relationships = new ArrayList<>();
+		
+		for (int i = 0; i < 4; i++) {
+			
+			relationships.add(-1);
+			
+		}
+		
+		//Set vCard_To_Contact to true so that the id will be set the the size of the contactList arraylist in the createContacts method
+		vCard_To_Contact = true;
 		
 		
 		
-		creatContact(id, firstName, lastName, phoneNumber, address, birthday, relationships);
+		createContacts(firstName, lastName, phoneNumber, address, birthday, relationships);
 		
 	}
 	
