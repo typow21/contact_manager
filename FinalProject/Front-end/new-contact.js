@@ -12,7 +12,7 @@ async function createContact(){
     var sister = document.getElementById('sister').value
     console.log(sister)
 
-    const resp = await fetch("http://3.22.164.98:8080/new-contact",{
+    const resp = await fetch("http://172.31.20.227:8080/new-contact",{
         method:"POST",
         body: JSON.stringify({  firstName: document.getElementById("firstName").value,
                                 lastName : document.getElementById("lastName").value, 
@@ -23,14 +23,11 @@ async function createContact(){
         }),
         headers: {"Content-Type": "application/json"}
     });
-    // console.log(resp)
-    // const newContact = await resp.json();
-    // JSON.parse(resp)
     window.location.href = "./index.html";
 }
 
 async function loadContacts(){
-    const resp =  await fetch("http://3.22.164.98:8080/load-contacts");
+    const resp =  await fetch("http://172.31.20.227:8080/load-contacts");
     contacts = await resp.json();
     // console.log(contacts);
     addRelations();

@@ -4,7 +4,7 @@ var id = window.location.search.split('?')[1].split('=')[1];
 
 async function fetchCard(){
     console.log(id);
-    const resp =  await fetch("http://3.22.164.98:8080/load-contacts");
+    const resp =  await fetch("http://172.31.20.227:8080/load-contacts");
     contacts = await resp.json();
 
     console.log(contacts);
@@ -60,7 +60,7 @@ async function exportVcard(){
     var brother = contacts[id].brother
     var sister = contacts[id].sister
 
-    const resp = await fetch("http://3.22.164.98:8080/contact-to-vCard",{
+    const resp = await fetch("http://172.31.20.227:8080/contact-to-vCard",{
         method:"POST",
         body: JSON.stringify({firstName: contacts[id].firstName,
                                 lastName : contacts[id].lastName, 
@@ -72,7 +72,7 @@ async function exportVcard(){
     });
 
     
-    const resp2 =  await fetch("http://3.22.164.98:8080/download-contact");
+    const resp2 =  await fetch("http://172.31.20.227:8080/download-contact");
     var downloadfile = await resp2.json();
     console.log(downloadfile)
     window.open(downloadfile);
