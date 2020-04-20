@@ -1,8 +1,8 @@
 .grid-container {
+    font-family: com;
     display: grid;
     grid-template-columns: 100% 100% 100% 100%;
-    grid-gap: 5%;
-    background-color: #c3c3c3;
+    grid-gap: 10%;
     padding: 10px;
     width: 20%;
 }
@@ -24,8 +24,9 @@ button.new_contact:hover{
 }
 
 body {
+    background-image: url("./cockroach.gif");
     padding: 10px;
-    background-color:   #c3c3c3;
+    background-color: #bbff01;
     text-align: center;
 }
 
@@ -36,6 +37,7 @@ p {
 }
 
 div.card {
+   font-family:  "Lucida Console", Monaco, monospace;
     color: black;
     display: grid;
     grid-column: auto;
@@ -47,7 +49,7 @@ div.card {
     padding-bottom: 20px;
     width: 100%;
     box-shadow: 1px 2px #616161;
-    background-color: #e2e2e2;
+    background-color:  #ffffff;
 }
 
 div.card:hover{
@@ -60,3 +62,6 @@ img{
     border: 1px solid black;
     width: 25%;
 }
+
+/* #fab355fb; */
+/* #85d2ff; */

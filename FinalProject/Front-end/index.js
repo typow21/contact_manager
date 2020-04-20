@@ -10,7 +10,6 @@ function loadPage(){
         document.getElementById("grid-container").appendChild(cardDiv);
         cardDiv.setAttribute('onclick', 'cardLink('+contacts[cardInd].id+')')
 
-
         var name = document.createElement('p');
         name.setAttribute('class', 'name');
         name.setAttribute('id', 'name'+cardInd);

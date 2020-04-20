@@ -38,3 +38,17 @@ hr{
 div.relations{
     text-align:center;
 }
+.button{
+    /* border: 0px; */
+    border-radius: 5%;
+    position: relative;
+    top:0;
+    font-size: large;
+    box-shadow: 1px 1px 1px;
+    transition: width .5s;
+}
+
+.button:hover{
+    box-shadow: 1px 2px 3px;
+    top:-3px;
+}

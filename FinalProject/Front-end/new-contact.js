@@ -14,7 +14,7 @@ async function createContact(){
 
     const resp = await fetch("http://127.0.0.1:8080/new-contact",{
         method:"POST",
-        body: JSON.stringify({firstName: document.getElementById("firstName").value,
+        body: JSON.stringify({  firstName: document.getElementById("firstName").value,
                                 lastName : document.getElementById("lastName").value, 
                                 phoneNumber : document.getElementById("phoneNumber").value,
                                 address : document.getElementById("address").value,

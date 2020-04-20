@@ -6,13 +6,16 @@ async function fetchCard(){
     console.log(id);
     const resp =  await fetch("http://127.0.0.1:8080/load-contacts");
     contacts = await resp.json();
+
     console.log(contacts);
     console.log(contacts[id])
+
     contact= contacts[id]
-    document.getElementById("name").innerHTML = contact.firstName + " " + contacts[id].lastName;
+    document.getElementById("name").innerHTML = contact.firstName + " " + contact.lastName;
     document.getElementById("phoneNumber").innerHTML = contact.phoneNumber;
     document.getElementById("address").innerHTML = contact.address;
     relationships = contact.relationships;
+
     console.log(relationships)
     if(relationships[0] != -1){
         console.log(contacts[relationships[0]].firstName )
@@ -31,7 +34,7 @@ async function fetchCard(){
         document.getElementById('sister').innerHTML += contacts[relationships[3]].firstName + " " + contacts[relationships[3]].lastName
         document.getElementById('sister').setAttribute('href',"./contactcard.html?id="+contacts[relationships[3]].id+"")
     }
-    document.getElementById("edit").setAttribute('onclick', 'cardLink('+id+')')
+    document.getElementById("edit").setAttribute('onclick', 'cardLink('+id+')');
 }
 fetchCard();
 
@@ -68,8 +71,10 @@ async function exportVcard(){
         headers: {"Content-Type": "application/json"}
     });
 
-    // alert("vCard Downloaded!");
+    
     const resp2 =  await fetch("http://127.0.0.1:8080/download-contact");
     var downloadfile = await resp2.json();
     console.log(downloadfile)
+    window.open(downloadfile);
+    alert("vCard Downloaded!");
 }
