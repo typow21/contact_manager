@@ -234,7 +234,39 @@ public class ContactsStore {
 		//Get the last name from the array
 		String lastName = split_fullName [1];
 		
+		//Created a list to pull all of the phone numbers
+		List <Telephone> phoneNumberList = new ArrayList<>();
+		
+		//pulled the phone numbers out of the object in the vCard
+		phoneNumberList = contact_vCard.getTelephoneNumbers();
+		
+		//Get the Telephone object from the list at loc 0
+		Telephone tel = phoneNumberList.get(0);
+		
+		//Store the phone number in the string
+		String phoneNumber = tel.getText();
+		
+		//Created list to hold the addresses
+		List <Address> addressList = new ArrayList<>();
+		
+		//Pulled the address list from the vCard and stored it into the list just created
+		addressList = contact_vCard.getAddresses();
+		
+		//Taking the address object from the loc 0 in the address list
+		Address adr = addressList.get(0);
+		
+		//Setting the street address in the address object to the string created
+		String address = adr.getStreetAddress();
+		
+		//Getting the birthday object from the vCard and storing it
+		Birthday bday = contact_vCard.getBirthday();
+		
+		//Getting the birthday String from the birthday object
+		String birthday = bday.getText();
+		
 		//Add the id and -1s to the relationship
+		
+		
 		
 		creatContact(id, firstName, lastName, phoneNumber, address, birthday, relationships);
 		
