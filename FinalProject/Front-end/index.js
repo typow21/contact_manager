@@ -20,24 +20,7 @@ function loadPage(){
         img.setAttribute('alt','Profile picture');
         document.getElementById('card'+cardInd).appendChild(img);
 
-        // var phonenumber = document.createElement('p');
-        // phonenumber.setAttribute('id', 'phonenumber'+cardInd);
-        // phonenumber.setAttribute('class', 'name');
-        // document.getElementById('card'+cardInd).appendChild(phonenumber);
-
-        // var address = document.createElement('p');
-        // address.setAttribute('id', 'address'+cardInd);
-        // address.setAttribute('class', 'name');
-        // document.getElementById('card'+cardInd).appendChild(address);
-
-        // var relationship = document.createElement('p');
-        // relationship.setAttribute('id', 'relationship'+cardInd);
-        // relationship.setAttribute('class', 'name');
-        // document.getElementById('card'+cardInd).appendChild(relationship);
-
         document.getElementById("name"+cardInd).innerHTML = contacts[cardInd].firstName + " " + contacts[cardInd].lastName;
-        // document.getElementById("phonenumber"+cardInd).innerHTML = contacts[cardInd].phoneNumber;
-        // document.getElementById("address"+ cardInd).innerHTML = contacts[cardInd].address;
     }
 }
 

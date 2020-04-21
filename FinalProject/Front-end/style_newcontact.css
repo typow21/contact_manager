@@ -3,7 +3,7 @@ h1{
 }
 
 body{
-    background-color: rgb(214, 214, 214);
+    background-color: rgb(85, 85, 85);
 }
 
 div.form{
@@ -11,9 +11,14 @@ div.form{
     text-align: center;
     width: 30%;
     height: 90%;
-    box-shadow: 4px 8px 12px #888888;
-    background-color: white;
+    border-radius: 2%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 10px 20px 30px;
     margin: 0 auto;
+    
+}
+div.form:hover{
+    box-shadow: 15px 30px 40px;
 }
 
 hr{
