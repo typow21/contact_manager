@@ -4,7 +4,7 @@ var id = window.location.search.split('?')[1].split('=')[1];
 
 async function fetchCard(){
     console.log(id);
-    const resp =  await fetch("http://127.0.0.1:8080/load-contacts");
+    const resp =  await fetch("http://52.14.251.131:8080/load-contacts");
     contacts = await resp.json();
 
     console.log(contacts);
@@ -43,7 +43,7 @@ async function deleteContact(){
     id = parseInt(id)
     console.log(id)
     if(confirm("Are you sure you want to delete contact?") == true){
-        await fetch('http://127.0.0.1:8080/delete-contact/'+id+'', {
+        await fetch('http://52.14.251.131:8080/delete-contact/'+id+'', {
         method: "DELETE"
         })
         window.location.href = "./index.html";
@@ -60,7 +60,7 @@ async function exportVcard(){
     var brother = contacts[id].brother
     var sister = contacts[id].sister
 
-    const resp = await fetch("http://127.0.0.1:8080/contact-to-vCard",{
+    const resp = await fetch("http://52.14.251.131:8080/contact-to-vCard",{
         method:"POST",
         body: JSON.stringify({firstName: contacts[id].firstName,
                                 lastName : contacts[id].lastName, 
@@ -72,7 +72,7 @@ async function exportVcard(){
     });
 
     
-    const resp2 =  await fetch("http://127.0.0.1:8080/download-contact");
+    const resp2 =  await fetch("http://52.14.251.131:8080/download-contact");
     var downloadfile = await resp2.blob();
     // console.log(downloadfile);
     // window.open(downloadfile);

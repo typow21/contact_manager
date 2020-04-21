@@ -4,7 +4,7 @@ var id = window.location.search.split('?')[1].split('=')[1];
 
 async function fetchCard(){
     console.log(id);
-    const resp =  await fetch("http://127.0.0.1:8080/load-contacts");
+    const resp =  await fetch("http://52.14.251.131:8080/load-contacts");
     contacts = await resp.json();
     console.log(contacts);
     console.log(contacts[id])
@@ -32,7 +32,7 @@ async function editContact(){
     var sister = document.getElementById('sister').value
     console.log(sister)
     console.log("reached")
-    const resp = await fetch("http://127.0.0.1:8080/edit-contact",{
+    const resp = await fetch("http://52.14.251.131:8080/edit-contact",{
         method:"POST",
         body: JSON.stringify({  id : id,
                                 firstName: document.getElementById("firstName").value,
