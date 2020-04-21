@@ -50,7 +50,7 @@ function test(cardInd){
 }
 
 async function loadContacts(){
-    const resp =  await fetch("http://52.14.250.174:8080/load-contacts");
+    const resp =  await fetch("http://52.14.251.131:8080/load-contacts");
     contacts = await resp.json();
     console.log(contacts);
     loadPage();
