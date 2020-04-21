@@ -18,4 +18,5 @@ function importVcard(){
             body: formData
         }).catch(console.error);
     });
+    window.location.href = "./index.html";
 }
