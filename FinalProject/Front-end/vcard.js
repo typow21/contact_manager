@@ -8,10 +8,10 @@ function importVcard(){
 
     myForm.addEventListener("submit", e =>{
         e.preventDefault();
-        const endpoint = "http://3.22.164.98/vCard-to-contact";
+        const endpoint = "http://52.14.250.174:8080/vCard-to-contact";
         const formData = new FormData();
 
-        formData.append("file", file.files[0]);
+        formData.append("vCard_multiFile", file.files[0]);
         console.log(file.files[0])
         fetch(endpoint, {
             method: "post",

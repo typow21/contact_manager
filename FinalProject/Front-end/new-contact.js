@@ -12,7 +12,7 @@ async function createContact(){
     var sister = document.getElementById('sister').value
     console.log(sister)
 
-    const resp = await fetch("http://3.22.164.98:8080/new-contact",{
+    const resp = await fetch("http://52.14.250.174:8080/new-contact",{
         method:"POST",
         body: JSON.stringify({  firstName: document.getElementById("firstName").value,
                                 lastName : document.getElementById("lastName").value, 
@@ -27,7 +27,7 @@ async function createContact(){
 }
 
 async function loadContacts(){
-    const resp =  await fetch("http://3.22.164.98:8080/load-contacts");
+    const resp =  await fetch("http://52.14.250.174:8080/load-contacts");
     contacts = await resp.json();
     // console.log(contacts);
     addRelations();
