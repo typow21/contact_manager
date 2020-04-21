@@ -63,15 +63,16 @@ public class ContactsStore {
 	public Contact createContacts(String firstName, String lastName, String phoneNumber, String address, List<Integer> relationships) {
 		
 		//If vCard_To_Contact is true then set the id to the contactList size cause the parameters are coming from a vCard
-		if (vCard_To_Contact == true) {
-			
-			id = contactList.size();
-			
-			//Set vCard_To_Contact back to false so that id will not be set to the contactList size again 
-			vCard_To_Contact = false;
-			
-		}
+//		if (vCard_To_Contact == true) {
+//			
+//			
+//			
+//			//Set vCard_To_Contact back to false so that id will not be set to the contactList size again 
+//			vCard_To_Contact = false;
+//			
+//		}
 		
+		id = contactList.size();
 		//Actual item, that is of type Contact, to add to the list of contacts
 		Contact item = new Contact(id, firstName, lastName, phoneNumber, address,  relationships);
 		
@@ -79,7 +80,7 @@ public class ContactsStore {
 		contactList.add(item);
 		
 		//increment id here?
-		this.id++;
+//		this.id++;
 		
 		this.saveContacts();
 		
