@@ -60,7 +60,7 @@ public class ContactsStore {
 	//Method creates a single contact
 	//This method will *get* and save the data into a contact data structure, from the page where the contact is created.
 	//Then the contact is added to an eventsLists which is basically a list of contacts, and returns the contact created.
-	public Contact createContacts(String firstName, String lastName, String phoneNumber, String address, String birthday, List<Integer> relationships) {
+	public Contact createContacts(String firstName, String lastName, String phoneNumber, String address, List<Integer> relationships) {
 		
 		//If vCard_To_Contact is true then set the id to the contactList size cause the parameters are coming from a vCard
 		if (vCard_To_Contact == true) {
@@ -73,7 +73,7 @@ public class ContactsStore {
 		}
 		
 		//Actual item, that is of type Contact, to add to the list of contacts
-		Contact item = new Contact(id, firstName, lastName, phoneNumber, address, birthday, relationships);
+		Contact item = new Contact(id, firstName, lastName, phoneNumber, address,  relationships);
 		
 		//Add the event to the event list
 		contactList.add(item);
@@ -144,7 +144,7 @@ public class ContactsStore {
 	}
 	
 	//Method updates a contact that is being changed by the user
-	public void editContact(int contactId, String firstName, String lastName, String phoneNumber, String address, String birthday, List <Integer> relationships) {
+	public void editContact(int contactId, String firstName, String lastName, String phoneNumber, String address, List <Integer> relationships) {
 		
 		Integer indexToEdit = null;
 		
@@ -169,7 +169,7 @@ public class ContactsStore {
 			contactList.get((int)indexToEdit).lastName = lastName;
 			contactList.get((int)indexToEdit).phoneNumber = phoneNumber;
 			contactList.get((int)indexToEdit).address = address;
-			contactList.get((int)indexToEdit).birthday = birthday;
+//			contactList.get((int)indexToEdit).birthday = birthday;
 			contactList.get((int)indexToEdit).relationships = relationships;
 		
 		//If contact to be edited doesn't exist or wasn't found, print out a message	
@@ -186,7 +186,7 @@ public class ContactsStore {
 	}
 	
 	//Method to create a vCard for the contact passed in from the site
-	public void tovCard (String firstName, String lastName, String phoneNumber, String address, String birthday) throws IOException {
+	public void tovCard (String firstName, String lastName, String phoneNumber, String address) throws IOException {
 		
 		//Made a vCard
 		VCard contact_vCard = new VCard();
@@ -216,10 +216,10 @@ public class ContactsStore {
 		contact_vCard.addAddress(adr);
 		
 		//created a birthday object for the vCard and added the contact's birthday to the object
-		Birthday bday = new Birthday(birthday);
+//		Birthday bday = new Birthday(birthday);
 		
 		//Added the birthday to the vCard
-		contact_vCard.setBirthday(bday);
+//		contact_vCard.setBirthday(bday);
 		
 		//Writes the vCard to the file and closes the file
 		Ezvcard.write(contact_vCard).go(vCard_File);
@@ -230,9 +230,8 @@ public class ContactsStore {
 		
 	} 
 	
-	public void toContact() throws IOException {
+	public void toContact(File vCard_File) throws IOException {
 		
-		File vCard_File = new File("./vCard_import.vcf");
 		
 		//Reading the first, and only, vCard from the file passed in then closes the file
 		VCard contact_vCard = Ezvcard.parse(vCard_File).first();
@@ -274,10 +273,9 @@ public class ContactsStore {
 		String address = adr.getStreetAddress();
 		
 		//Getting the birthday object from the vCard and storing it
-		Birthday bday = contact_vCard.getBirthday();
 		
 		//Getting the birthday String from the birthday object
-		String birthday = bday.getText();
+//		String birthday = bday.getText();
 		
 		//id = contactList.size();
 		
@@ -292,10 +290,10 @@ public class ContactsStore {
 		
 		//Set vCard_To_Contact to true so that the id will be set the the size of the contactList arraylist in the createContacts method
 		vCard_To_Contact = true;
+		System.out.println("Test Firstname:"+firstName);
 		
 		
-		
-		createContacts(firstName, lastName, phoneNumber, address, birthday, relationships);
+		createContacts(firstName, lastName, phoneNumber, address, relationships);
 		
 	}
 	

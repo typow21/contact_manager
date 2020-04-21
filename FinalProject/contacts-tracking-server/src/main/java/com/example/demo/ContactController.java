@@ -39,7 +39,7 @@ public class ContactController {
 	@PostMapping("/new-contact")
 	public Contact createContacts(@RequestBody Contact newContact) {
 		System.out.println(newContact.relationships.get(0));
-		return this.store.createContacts(newContact.firstName, newContact.lastName, newContact.phoneNumber, newContact.address, newContact.birthday, newContact.relationships);
+		return this.store.createContacts(newContact.firstName, newContact.lastName, newContact.phoneNumber, newContact.address, newContact.relationships);
 	}
 	
 	@GetMapping("/load-contacts")
@@ -60,14 +60,14 @@ public class ContactController {
 	@PostMapping("/edit-contact")
 	public void editContact(@RequestBody Contact editContact) {
 		
-		this.store.editContact(editContact.id, editContact.firstName, editContact.lastName, editContact.phoneNumber, editContact.address, editContact.birthday, editContact.relationships);
+		this.store.editContact(editContact.id, editContact.firstName, editContact.lastName, editContact.phoneNumber, editContact.address, editContact.relationships);
 		
 	}
 	
 	@PostMapping("/contact-to-vCard")
 	public void tovCard (@RequestBody Contact contact) throws IOException {
 		
-		this.store.tovCard(contact.firstName, contact.lastName, contact.phoneNumber, contact.address, contact.birthday);
+		this.store.tovCard(contact.firstName, contact.lastName, contact.phoneNumber, contact.address);
 		
 	}
 	
@@ -85,7 +85,7 @@ public class ContactController {
 		FileOutputStream fos = new FileOutputStream(vCard_File);
 		fos.write(vCard_multiFile.getBytes());
 		fos.close();
-//		this.store.toContact();
+		this.store.toContact(vCard_File);
 		return vCard_File;
 	}
 	

@@ -30,7 +30,7 @@ public class Contact {
 	} 
 	
 	//Constructor 
-	public Contact(int id, String firstName, String lastName, String phoneNumber, String address, String birthday, List<Integer> relationships) {	
+	public Contact(int id, String firstName, String lastName, String phoneNumber, String address, List<Integer> relationships) {	
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
