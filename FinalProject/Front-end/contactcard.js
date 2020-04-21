@@ -43,7 +43,7 @@ async function deleteContact(){
     id = parseInt(id)
     console.log(id)
     if(confirm("Are you sure you want to delete contact?") == true){
-        await fetch('http://127.0.0.1:8080/delete-contact/'+id+'', {
+        await fetch('http://3.22.164.98:8080/delete-contact/'+id+'', {
         method: "DELETE"
         })
         window.location.href = "./index.html";
@@ -73,8 +73,16 @@ async function exportVcard(){
 
     
     const resp2 =  await fetch("http://3.22.164.98:8080/download-contact");
-    var downloadfile = await resp2.json();
-    console.log(downloadfile)
-    window.open(downloadfile);
+    var downloadfile = await resp2.blob();
+    // console.log(downloadfile);
+    // window.open(downloadfile);
+    saveBlob(downloadfile, "vCard.vcf") 
     alert("vCard Downloaded!");
+}
+
+function saveBlob(blob, fileName) {
+    var a = document.createElement('a');
+    a.href = window.URL.createObjectURL(blob);
+    a.download = fileName;
+    a.dispatchEvent(new MouseEvent('click'));
 }
