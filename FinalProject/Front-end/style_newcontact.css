@@ -49,7 +49,7 @@ div.relations{
     position: relative;
     top:0;
     font-size: large;
-    box-shadow: 1px 1px 1px;
+    /* box-shadow: 1px 1px 1px; */
     transition: width .5s;
 }
 
