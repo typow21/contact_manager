@@ -80,6 +80,7 @@ public class ContactController {
 	
 	@PostMapping("/vCard-to-contact")
 	public File toContact(@RequestBody MultipartFile vCard_multiFile) throws IOException {
+		System.out.println("Test 1 Reached");
 		File vCard_File = new File("vCard_Import.vcf");
 		vCard_File.createNewFile();
 		FileOutputStream fos = new FileOutputStream(vCard_File);
