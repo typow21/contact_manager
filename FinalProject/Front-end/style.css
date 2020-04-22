@@ -45,6 +45,7 @@ p {
 }
 
 div.card {
+    font-family: Arial, Helvetica, sans-serif;
     color: black;
     display: grid;
     grid-column: auto;
