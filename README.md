@@ -2,6 +2,8 @@
 ## Contacts manager app
 ***Tyler Powell / Andrew Pidhajny / Frank Gatto***
 
+S3 bucket updates automatically from GitHub
+
  [typow.org](http://typow.org) or [Contacts manager](http://practicum.final.s3-website.us-east-2.amazonaws.com )
 ## Front End - written mostly by Tyler
 Built using JavaScript, HTML, and CSS 
