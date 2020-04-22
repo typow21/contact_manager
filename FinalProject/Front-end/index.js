@@ -1,6 +1,9 @@
 let contacts = []
 
+//fills the contacts ds
 loadContacts();
+
+//creates a card for each contact that exists
 function loadPage(){
     for (var cardInd in contacts){
         var cardDiv = document.createElement('div');
@@ -9,7 +12,7 @@ function loadPage(){
         cardDiv.setAttribute('name', contacts[cardInd].id + '')
         document.getElementById("grid-container").appendChild(cardDiv);
         cardDiv.setAttribute('onclick', 'cardLink('+contacts[cardInd].id+')')
-
+        
         var name = document.createElement('p');
         name.setAttribute('class', 'name');
         name.setAttribute('id', 'name'+cardInd);
@@ -28,10 +31,7 @@ function cardLink(id){
     window.location.href = "./contactcard.html?id="+id+"";
 }
 
-function test(cardInd){
-    console.log(cardInd);
-}
-
+//fills the contacts ds
 async function loadContacts(){
     const resp =  await fetch("http://52.14.251.131:8080/load-contacts");
     contacts = await resp.json();

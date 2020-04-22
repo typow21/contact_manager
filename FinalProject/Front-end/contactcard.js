@@ -7,15 +7,22 @@ async function fetchCard(){
     const resp =  await fetch("http://52.14.251.131:8080/load-contacts");
     contacts = await resp.json();
 
-    console.log(contacts);
-    console.log(contacts[id])
+    console.log("Array of contacts: "+contacts);
+    console.log("Selected contact: "+contacts[id])
 
-    contact= contacts[id]
+    contact= contacts[id] //uses id to get index of contacts
+
+    // this prints and formats the contact information to the page
     document.getElementById("name").innerHTML = contact.firstName + " " + contact.lastName;
     document.getElementById("phoneNumber").innerHTML = contact.phoneNumber;
     document.getElementById("address").innerHTML = contact.address;
+
+    // Sets data for global variable
     relationships = contact.relationships;
 
+    // -1 in an index means no relationship has been set.
+    //if it does have a relationship it sets the link to the page that is related
+    // adds the id of that contact to the link
     console.log(relationships)
     if(relationships[0] != -1){
         console.log(contacts[relationships[0]].firstName )
@@ -34,6 +41,7 @@ async function fetchCard(){
         document.getElementById('sister').innerHTML += contacts[relationships[3]].firstName + " " + contacts[relationships[3]].lastName
         document.getElementById('sister').setAttribute('href',"./contactcard.html?id="+contacts[relationships[3]].id+"")
     }
+    // links to an edit page with the id of the card as the parameter
     document.getElementById("edit").setAttribute('onclick', 'cardLink('+id+')');
 }
 fetchCard();
@@ -50,10 +58,14 @@ async function deleteContact(){
     }
 }
 
+// calls the edit-contact page with id as a parameter
 function cardLink(id){
     window.location.href = "./edit-contact.html?id="+id+"";
 }
 
+// sends the current contact card to the server
+// recieves back a vcf file 
+// automatically downloads card
 async function exportVcard(){
     var mother = contacts[id].mother
     var father = contacts[id].father
@@ -80,6 +92,9 @@ async function exportVcard(){
     alert("vCard Downloaded!");
 }
 
+// creates a link 
+// sets the link to the url of the file 
+// downloads the file
 function saveBlob(blob, fileName) {
     var a = document.createElement('a');
     a.href = window.URL.createObjectURL(blob);
