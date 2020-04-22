@@ -2,6 +2,7 @@ let contacts = []
 let relationships = []
 var id = window.location.search.split('?')[1].split('=')[1];
 
+//fetches card data
 async function fetchCard(){
     console.log(id);
     const resp =  await fetch("http://52.14.251.131:8080/load-contacts");
@@ -14,6 +15,7 @@ async function fetchCard(){
 }
 fetchCard();
 
+//prefills the contact form so that you only edit what you want to edit not recreate the entire form
 function prefillInfo(){
     addRelations();
     document.getElementById("firstName").setAttribute('value', contacts[id].firstName);
@@ -22,6 +24,7 @@ function prefillInfo(){
     document.getElementById("address").setAttribute('value', contacts[id].address);
 }
 
+// resends the form to the server and edits the existing card.
 async function editContact(){
     var mother = document.getElementById("mother").value
     console.log(mother)
@@ -40,18 +43,14 @@ async function editContact(){
                                 phoneNumber : document.getElementById("phoneNumber").value,
                                 address : document.getElementById("address").value,
                                 relationships : [mother, father, brother, sister]
-                                // relationships : {"Mother": 1, "Father": 2}
-                                // relationships : document.getElementById("relationships").value
         }),
         headers: {"Content-Type": "application/json"}
     });
-    // console.log(resp)
-    // const newContact = await resp.json();
-    // JSON.parse(resp)
     alert("Contact edited!");
     window.location.href = "./index.html";
 }
 
+// creates the options for the relationships based on the contacts that exist
 function addRelations(){
 
     for(contact in contacts){
@@ -84,9 +83,4 @@ function addRelations(){
     document.getElementById('father').value = relationships[1];
     document.getElementById('brother').value = relationships[2];
     document.getElementById('sister').value = relationships[3];
-    // var relationInput = document.createElement('input');
-    // relationInput.setAttribute('type', 'text');
-    // relationInput.setAttribute('id', 'relationsInput');
-    // relationInput.setAttribute('name', 'relationsInput');
-    // relationSelect32.append(relationInput);
 }

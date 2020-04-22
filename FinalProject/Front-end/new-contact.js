@@ -11,7 +11,7 @@ async function createContact(){
     console.log(brother)
     var sister = document.getElementById('sister').value
     console.log(sister)
-
+    
     const resp = await fetch("http://52.14.251.131:8080/new-contact",{
         method:"POST",
         body: JSON.stringify({  firstName: document.getElementById("firstName").value,

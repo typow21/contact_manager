@@ -21,7 +21,6 @@ button.new_contact{
     position: relative;
     top:0;
     font-size: large;
-    transition:  .5s;
     margin: 20px;
 }
 
