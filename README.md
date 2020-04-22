@@ -3,12 +3,12 @@
 ***Tyler Powell / Andrew Pidhajny / Frank Gatto***
 
  [typow.org](http://typow.org) or [Contacts manager](http://practicum.final.s3-website.us-east-2.amazonaws.com )
-## Front End
+## Front End - written mostly by Tyler
 Built using JavaScript, HTML, and CSS 
 
 The site is being statically hosted using AWS S3 Bucket
 
-## Backend
+## Backend - written mostly by Andrew
 The backend uses SpringBoot written in Java.
 
 The server is running on EC2 AWS instance.
@@ -18,6 +18,7 @@ Stores contact data in a JSON file for persistant storage.
 ## Fuctionality
 Home page (index.html) -
 
+Create new contact (newcontact.html) -
 
 Individual contact (contactcard.html) - 
 
@@ -25,6 +26,6 @@ Individual contact (contactcard.html) -
 
 * Delete contact (contactcard.html) - 
 
-* Export Vcard (contactcard.html) - 
+* Export vCard (contactcard.html) - 
 
 
