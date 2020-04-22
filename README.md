@@ -2,7 +2,7 @@
 ## Contacts manager app
 ***Tyler Powell / Andrew Pidhajny / Frank Gatto***
 
- [link](http://typow.org, "typow.org") or [link](http://practicum.final.s3-website.us-east-2.amazonaws.com, "Contacts managager")
+ [typow.org](http://typow.org) or [Contacts manager](http://practicum.final.s3-website.us-east-2.amazonaws.com )
 ## Front End
 Built using JavaScript, HTML, and CSS 
 
