@@ -16,16 +16,18 @@ The server is running on EC2 AWS instance.
 Stores contact data in a JSON file for persistant storage.
 
 ## Fuctionality
-Home page (index.html) -
+Home page (index.html) 
 
-Create new contact (newcontact.html) -
+Create new contact (newcontact.html) 
 
-Individual contact (contactcard.html) - 
+Import vCard File (vcard.html) 
 
-* Edit contact (edit-contact.html)-
+Individual contact (contactcard.html) 
 
-* Delete contact (contactcard.html) - 
+* Edit contact (edit-contact.html)
 
-* Export vCard (contactcard.html) - 
+* Delete contact (contactcard.html) 
+
+* Export vCard (contactcard.html) 
 
 
