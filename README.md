@@ -22,7 +22,7 @@ All contacts page(index.html)
 
 Create new contact (newcontact.html) 
 
-Import vCard File (vcard.html) 
+Import vCard File (vcard.html)  
 
 Individual contact (contactcard.html) 
 
