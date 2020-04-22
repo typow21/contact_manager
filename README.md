@@ -16,7 +16,7 @@ The server is running on EC2 AWS instance.
 Stores contact data in a JSON file for persistant storage.
 
 ## Fuctionality
-Home page (index.html) 
+All contacts page(index.html) 
 
 Create new contact (newcontact.html) 
 
