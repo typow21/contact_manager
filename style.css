@@ -30,9 +30,8 @@ button.new_contact:hover{
 }
 
 body {
-    background-image: url("./cockroach.gif");
     padding: 10px;
-    background-color: rgb(5, 175, 61);
+    background-color: rgb(85, 85, 85);
     text-align: center;
     color: white;
     height: 100%;
@@ -59,7 +58,6 @@ div.card {
     box-shadow: 3px 4px 15px 6px #222222;
     background-color:  #ffffff;
     margin-bottom: 15px;
-    transition: .5s;
 }
 
 div.card:hover{
